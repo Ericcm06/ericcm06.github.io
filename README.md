@@ -13,3 +13,9 @@
 `<input type="submit" value="Enviar">`
 
 - **Botón** para enviar el formulario con la palabra _"Enviar"_.
+
+
+
+
+Termino extraño
+: Este es el significado del término extraño, algo que no ves todos los días.
