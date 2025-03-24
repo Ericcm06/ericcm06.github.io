@@ -19,3 +19,8 @@
 
 Termino extraño
 : Este es el significado del término extraño, algo que no ves todos los días.
+
+
+Este es un texto con una nota al pie[^1]. Aquí sigue el párrafo.
+
+[^1]: Esta es la nota al pie, que explica algo adicional.
