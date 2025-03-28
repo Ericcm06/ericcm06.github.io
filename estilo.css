@@ -59,6 +59,9 @@ footer nav ul:hover {
 	text-decoration: underline;
 	
 }
+form {
+	text-align: center;
+}
 .navegacion-web {
 	border: 4px solid pink;
 	
@@ -70,6 +73,10 @@ h2.titulo_juego{
 }
 .error{
 	color: #ff0000;
+}
+.fatal {
+	font-weight:bold;
+	text-decoration:underline;
 }
 .you_win{
 	color: #00ff00;
