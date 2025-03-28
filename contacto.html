@@ -2,7 +2,50 @@
 <html>
 	<head>
 		<title>Contacto</title>
+		<script>
+		    function comprobar_campos(event) {
+			
+            let nombre = document.getElementById("campo-nombre");
+            let nacimiento = document.getElementById("campo-nacimiento");
+            let edad = document.getElementById("campo-edad");
+            let contraseña = document.getElementById("campo-password");
+			
+            let valido = true;
+			
+			if (contraseña.value == "") {
+                contraseña.style.border = "1px solid red";
+                valido = false;
+            } else {
+                contraseña.style.border = "";
+            }
+			
+            if (nombre.value == "") {
+                nombre.style.border = "1px solid red";
+                valido = false;
+            } else {
+                nombre.style.border = "";
+            }
 
+            if (nacimiento.value == "") {
+                nacimiento.style.border = "1px solid red";
+                valido = false;
+            } else {
+                nacimiento.style.border = "";
+            }
+
+            if (edad.value == "") {
+                edad.style.border = "1px solid red";
+                valido = false;
+            } else {
+                edad.style.border = "";
+            }
+            
+            if (!valido) {
+                event.preventDefault();
+            }
+        }
+		
+		</script>
 		<link rel="stylesheet" href="estilo.css" />
 	</head>
 	<Body>
@@ -21,14 +64,27 @@
 		<main>
 			<h2>Contacto</h2>
 			
-			<form>
-			<p><label for="campo-nombre" >Nombre: <input type="text" name="nombre" value="Paquito" /></p>
-			<p>Pass: <input type="pass" name="password" /></p>
-			<p>Nacimiento: <input type="date" name="nombre" value="Paquito" /></p>
-			<p>Edad: <input type="number" name="edad" value="18" min="1" max="120" /></p>
-			<p><input type="submit" /></p>
-			</form>
-			
+				<form onsubmit="comprobar_campos(event)">
+				  <p>
+					<label for="campo-nombre">Nombre:</label>
+					<input type="text" name="nombre" id="campo-nombre" value="Paquito" />
+				  </p>
+				  <p>
+					<label for="campo-password">Contraseña:</label>
+					<input type="password" name="password" id="campo-password" />
+				  </p>
+				  <p>
+					<label for="campo-nacimiento">Fecha de nacimiento:</label>
+					<input type="date" name="birthdate" id="campo-nacimiento" value="1987-03-12" />
+				  </p>
+				  <p>
+					<label for="campo-edad">Edad:</label>
+					<input type="number" name="edad" id="campo-edad" value="38" min="1" max="120" />
+				  </p>
+				  <p>
+					<input type="submit" value="Enviar"/>
+				  </p>
+				</form>
 		</main>
 		<footer>
 			<nav>

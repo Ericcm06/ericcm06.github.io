@@ -3,39 +3,49 @@
 		<title>Eric Campaña</title>
 		<script>
 		
-		let numero_random = Math.floor(Math.random() * 100) + 1;
-		let contador;
-		
-		function comparar_numero() 
-		{
-			contador++;
-			
-			contador = "submit.value" + "contador"
-			
-			let my_num_input = document.getElementById("numero")
-			
-			let my_num = my_num_input.value;
-			
-			let resultado = document.getElementById("resultado");
+			let numero_random = Math.floor(Math.random() * 100) + 1;
+			let contador = 0;
+			let limite_intentos = 10;
 
-			contador.innerHTML = "¡Adivina!"
+			function comparar_numero() {
+				contador++;
 
-			if (my_num < numero_random) {
-				resultado.innerHTML = "<em class=\"error\">El número es más grande que "+my_num+"";
-				//resultado.style.color = "#ff0000";
-			} else if (my_num > numero_random) {
-				resultado.innerHTML = "<em class=\"error\">El número es más pequeño que "+my_num+"";
-				//resultado.style.color = "#ff0000";
-			} else {
-				resultado.innerHTML = "<em class=\"you_win\">¡Lo has acertado, era "+my_num+"!";
-				//resultado.style.color = "#00ff00";
+				let my_num_input = document.getElementById("numero");
+				let my_num = my_num_input.value;
+				let resultado = document.getElementById("resultado");
+
+				
+				document.getElementById("submit").value = "Intentos: " + contador;
+
+				if (my_num < numero_random) {
+					resultado.innerHTML = "<em class=\"error\">El número es más grande que " + my_num + "</em>";
+					
+					my_num_input.style.border = "1px solid red"
+					
+					//resultado.style.color = "#ff0000";
+				} else if (my_num > numero_random) {
+					resultado.innerHTML = "<em class=\"error\">El número es más pequeño que " + my_num + "</em>";
+					
+					my_num_input.style.border = "1px solid red"
+					
+					//resultado.style.color = "#ff0000";
+				} else {
+					resultado.innerHTML = "<em class=\"you_win\">¡Lo has acertado, era " + my_num + "!</em>";
+					
+					
+					//resultado.style.color = "#00ff00";
+				}
+				
+				if (contador >= limite_intentos) {
+					resultado.innerHTML = "Has llegado al límite de intentos, máximos intentos: " + limite_intentos;
+					
+					document.getElementById("submit").disabled = true;
+				}
+
+				
+				my_num_input.value = "";
+				my_num_input.focus();
 			}
-			
-			my_num_input.value = "";
-			my_num_input.focus();
-			
-			
-		}
 		
 		</script>
 
@@ -59,8 +69,8 @@
 			<p id=resultado>¡Prueba suerte!</p>
 			<form>
 			<p><label for="numero" >Tu numero:</label>
-			<input type="number" id="numero" name="numero_usuario"/></p>
-			<p><input type="button" id="submit" value="¡adivina!" onclick="comparar_numero()"/></p>
+			<input type="number" id="numero" name="numero_usuario" required/></p>
+			<p><input type="button" id="submit" value="¡adivina!" onclick="comparar_numero()" onclick="validarFormulario"/></p>
 			</form>
 			
 		</main>
