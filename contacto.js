@@ -1,4 +1,6 @@
-		    function comprobar_campos(event) {
+		    //<form onsubmit="comprobar_campos(event)">
+			
+			function comprobar_campos(event) {
 			
             let nombre = document.getElementById("campo-nombre");
             let nacimiento = document.getElementById("campo-nacimiento");
