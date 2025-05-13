@@ -14,7 +14,6 @@ body {
     padding: 0 20px;
 }
 
-/* ---------- Navegación ---------- */
 nav {
     padding: 16px;
     border-radius: 10px;
@@ -45,11 +44,8 @@ nav a:hover {
     color: #4db6ac;
 }
 
-nav a:hover::after {
-    width: 100%;
-}
 
-/* ---------- Encabezados y texto ---------- */
+
 h1, h2 {
     color: #4db6ac;
     font-family: 'Roboto Mono', monospace;
@@ -128,7 +124,6 @@ section.microjuego:hover {
     text-align: center;
 }
 
-/* ---------- Links generales ---------- */
 a {
     color: #4db6ac;
     transition: color 0.3s ease;

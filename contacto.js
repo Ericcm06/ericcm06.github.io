@@ -1,43 +1,83 @@
-		    //<form onsubmit="comprobar_campos(event)">
-			
-			function comprobar_campos(event) {
-			
-            let nombre = document.getElementById("campo-nombre");
-            let nacimiento = document.getElementById("campo-nacimiento");
-            let edad = document.getElementById("campo-edad");
-            let contraseña = document.getElementById("campo-password");
-			
-            let valido = true;
-			
-			if (contraseña.value == "") {
-                contraseña.style.border = "1px solid red";
-                valido = false;
-            } else {
-                contraseña.style.border = "";
-            }
-			
-            if (nombre.value == "") {
-                nombre.style.border = "1px solid red";
-                valido = false;
-            } else {
-                nombre.style.border = "";
-            }
 
-            if (nacimiento.value == "") {
-                nacimiento.style.border = "1px solid red";
-                valido = false;
-            } else {
-                nacimiento.style.border = "";
-            }
+let nombre_field;
+let pass_field;
+let nacimiento_field;
+let edad_field;
+let suscribe_field;
+let contact_form;
 
-            if (edad.value == "") {
-                edad.style.border = "1px solid red";
-                valido = false;
-            } else {
-                edad.style.border = "";
-            }
-            
-            if (!valido) {
-                event.preventDefault();
-            }
-        }
+document.addEventListener("DOMContentLoaded", () => {
+	nombre_field = document.getElementById("campo-nombre");
+	pass_field = document.getElementById("campo-password");
+	nacimiento_field = document.getElementById("campo-nacimiento");
+	edad_field = document.getElementById("campo-edad");
+	suscribe_field = document.getElementById("campo-suscripcion");
+	contact_form = document.getElementById("contact-form");
+
+	suscribe_field.addEventListener("click", (event) => {
+		if (event.target.checked) {
+			alert("ja ja já Tu alma es mia");
+		} else {
+			alert("Nooooooooooooooooooo");
+		}
+	});
+
+	contact_form.addEventListener("submit", (event) => {
+		let send = true;
+
+		if (nombre_field.value.length <= 2 || nombre_field.value.length >= 32) {
+			send = false;
+			nombre_field.style.border = "1px solid red";
+		} else {
+			nombre_field.style.border = "";
+		}
+
+		if (!send) {
+			event.preventDefault();
+		}
+	});
+});
+
+/*
+let nombre_field;
+let pass_field;
+let nacimiento_field;
+let edad_field;
+let suscribe_field;
+let contact_form;
+
+document.addEventListener("DOMContentLoaded", (event) => {
+	nombre_field = document.getElementById("campo-nombre");
+	pass_field = document.getElementById("campo-password");
+	nacimiento_field = document.getElementById("campo-nacimiento");
+	edad_field = document.getElementById("campo-edad");
+	suscribe_field = document.getElementById("campo-suscripcion");
+	contactForm = document.getElementById("contact-form");
+	suscribe_field.addEventListener("click", function(event) {
+		if(event.target.checked) {
+			alert("ja ja já Tu alma es mia");
+		}
+		else {
+			alert("Nooooooooooooooooooo");
+		}
+	});
+	
+	contact_form.addEventListener("submit", (event) => {
+		let send = true;
+		let nombre_field = document.getElementById("campo-nombre");
+
+		if (nombre_field.value.length <= 2 || nombre_field.value.length >= 32) {
+			send = false;
+			nombre_field.style.border = "1px solid red";
+		} else {
+			nombre_field.style.border = "";
+		}
+
+		if (!send) {
+			event.preventDefault();
+    }
+});
+
+	
+});
+*/
